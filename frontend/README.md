@@ -1,6 +1,8 @@
 # frontend
+This is a dashboard sidebar template. I created it with using TailwindCSS 3.
 
-This template should help get you started developing with Vue 3 in Vite.
+
+
 
 ## Recommended IDE Setup
 
