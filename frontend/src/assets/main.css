@@ -1,35 +1,21 @@
 @import './base.css';
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-
-  font-weight: normal;
+* {
+    @apply transition-colors duration-100 ease-in-out;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
+.routerLink {
+    @apply flex text-sm w-full px-2 py-1.5 font-semibold rounded-lg hover:bg-primary-50/90 active:bg-primary-50 text-gray-600 hover:text-gray-50 hover:cursor-pointer;
 }
 
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
-  }
+.router-link-active {
+    @apply text-gray-100 bg-primary-50/70;
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-    place-items: center;
-  }
+.hoverEffect {
+    @apply hover:brightness-95 active:brightness-90;
+}
 
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
-  }
+.hoverEffect2 {
+    @apply hover:brightness-150 active:brightness-200;
 }
