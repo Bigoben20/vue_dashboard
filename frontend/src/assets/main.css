@@ -1,1 +1,21 @@
 @import './base.css';
+
+* {
+    @apply transition-colors duration-100 ease-in-out;
+}
+
+.routerLink {
+    @apply flex text-sm w-full px-2 py-1.5 font-semibold rounded-lg hover:bg-primary-50/90 active:bg-primary-50 text-gray-600 hover:text-gray-50 hover:cursor-pointer;
+}
+
+.router-link-active {
+    @apply text-gray-100 bg-primary-50/70;
+}
+
+.hoverEffect {
+    @apply hover:brightness-95 active:brightness-90;
+}
+
+.hoverEffect2 {
+    @apply hover:brightness-150 active:brightness-200;
+}
