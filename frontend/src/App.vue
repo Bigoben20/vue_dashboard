@@ -23,13 +23,13 @@
           <span>{{router.name}}</span>
         </RouterLink>
       </div>
-      <div class="w-full p-2 border-y">
-        <!-- Logout Button -->
+      <!-- <div class="w-full p-2 border-y">
+        Logout Button
         <router-link to="/logout" class="items-center gap-1 routerLink">
           <font-awesome-icon icon="fa-door-open"/>
           <span>Logout</span>
         </router-link>
-      </div>
+      </div> -->
     </nav>
 
     <!-- Page Contents -->
@@ -47,9 +47,9 @@ export default {
   setup() {
     const router = useRouter();
     const routerUrls = [
-      { name: 'Dashboard', path: '/', icon: "fa-gauge-high" },
-      { name: 'Orders', path: '/orders', icon: "fa-list-ol" },
-      { name: 'Admins', path: '/admins', icon: "fa-users" }
+      { name: 'Home', path: '/', icon: "fa-gauge-high" },
+      { name: 'Exchange', path: '/exchange', icon: "fa-list-ol" },
+      { name: 'News', path: '/news', icon: "fa-users" }
     ];
     
     return { routerUrls };

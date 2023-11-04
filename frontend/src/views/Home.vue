@@ -1,5 +1,5 @@
 <template>
-  <span>Admins</span>
+  <span>All Pages</span>
 </template>
 
 <script>

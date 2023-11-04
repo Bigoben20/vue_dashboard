@@ -13,9 +13,25 @@
 }
 
 .hoverEffect {
-    @apply hover:brightness-95 active:brightness-90;
+    @apply hover:brightness-[0.98] active:brightness-[0.97];
 }
 
 .hoverEffect2 {
     @apply hover:brightness-150 active:brightness-200;
+}
+
+.title {
+    @apply text-4xl font-bold tracking-widest;
+}
+
+.heading {
+    @apply text-3xl font-bold tracking-wider;
+}
+
+.text {
+    @apply text-base font-medium;
+}
+
+.generalInput {
+    @apply px-4 py-2 text-gray-800 bg-gray-100 border-none rounded appearance-none focus:outline-2 focus:outline-offset-1 focus:outline-blue-600;
 }
