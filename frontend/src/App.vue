@@ -33,7 +33,7 @@
     </nav>
 
     <!-- Page Contents -->
-    <main class="translate-y-[72px] min-h-screen transition-all ease-in-out duration-300 p-2 md:p-6" :class="{'w-full':!sidebarOpen, 'translate-x-[200px] w-[calc(100%-200px)]':sidebarOpen}">
+    <main class="translate-y-[72px] min-h-screen transition-all ease-in-out duration-300 p-2 md:p-6 overflow-x-hidden w-full" :class="{'max-w-full':!sidebarOpen, 'translate-x-[200px] max-w-full md:max-w-[calc(100%-200px)]':sidebarOpen}">
       <RouterView />
     </main>
   </div>
@@ -48,8 +48,8 @@ export default {
     const router = useRouter();
     const routerUrls = [
       { name: 'Home', path: '/', icon: "fa-gauge-high" },
-      { name: 'Exchange', path: '/exchange', icon: "fa-list-ol" },
-      { name: 'News', path: '/news', icon: "fa-users" }
+      { name: 'Currency Converter', path: '/currency-converter', icon: "fa-arrow-right-arrow-left" },
+      { name: 'News', path: '/news', icon: "fa-newspaper" }
     ];
     
     return { routerUrls };

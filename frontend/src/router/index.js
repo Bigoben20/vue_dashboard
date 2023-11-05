@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
-import Exchange from '../views/Exchange.vue'
+import CurrencyConverter from '../views/CurrencyConverter.vue'
 import News from '../views/News.vue'
 
 const router = createRouter({
@@ -13,10 +13,10 @@ const router = createRouter({
       component: Home
     },
     {
-      path: '/exchange',
-      name: 'exchange',
-      meta: { title: 'Exchange' },
-      component: Exchange
+      path: '/currency-converter',
+      name: 'currency-converter',
+      meta: { title: 'Currency Converter' },
+      component: CurrencyConverter
     },
     {
       path: '/news',

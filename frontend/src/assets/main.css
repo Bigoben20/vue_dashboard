@@ -13,7 +13,7 @@
 }
 
 .hoverEffect {
-    @apply hover:brightness-[0.98] active:brightness-[0.97];
+    @apply hover:brightness-95 active:brightness-90;
 }
 
 .hoverEffect2 {
@@ -33,5 +33,20 @@
 }
 
 .generalInput {
-    @apply px-4 py-2 text-gray-800 bg-gray-100 border-none rounded appearance-none focus:outline-2 focus:outline-offset-1 focus:outline-blue-600;
+    @apply px-4 py-2 text-gray-800 transition-all bg-white border-none rounded appearance-none focus:outline-2 focus:outline-offset-1 focus:outline-blue-600 focus:ring-0;
+}
+
+table thead {
+    @apply bg-gray-100 border-b border-gray-300;
+}
+
+table thead tr th {
+    @apply text-gray-600;
+}
+table thead tr th, table tbody tr td {
+    @apply text-start px-3 py-1.5;
+}
+
+table tbody {
+    @apply divide-y;
 }

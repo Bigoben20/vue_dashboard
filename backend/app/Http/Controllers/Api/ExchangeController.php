@@ -41,7 +41,7 @@ class ExchangeController extends Controller
             $url = $url."from=".$request->from."&";
         }
         if ($request->to != null) {
-            $url = $url."to=".$request->to."&";
+            $url = $url."to=".$request->to;
         }
         
         return $url;
@@ -58,6 +58,6 @@ class ExchangeController extends Controller
             $url = $url."..";
         }
         
-        return $url;
+        return $url."?";
     }
 }
