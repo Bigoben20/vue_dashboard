@@ -1,5 +1,5 @@
 <template>
-  <span>Orders</span>
+  <span>Work in progress...</span>
 </template>
 
 <script>
