@@ -8,17 +8,17 @@
       <div class="flex items-end gap-4">
         <div class="flex flex-col items-start">
           <label for="beginDate">Begin Date</label>
-          <input id="beginDate" v-model="beginDate" type="date" :max="bugununTarihi" class="generalInput">
+          <input id="beginDate" v-model="beginDate" type="date" :max="bugununTarihi" class="generalInput bg-white">
         </div>
         <div class="flex flex-col items-start">
           <label for="endDate">End Date</label>
-          <input id="endDate" v-model="endDate" type="date" :max="bugununTarihi" class="generalInput">
+          <input id="endDate" v-model="endDate" type="date" :max="bugununTarihi" class="generalInput bg-white">
         </div>
       </div>
       <div class="flex items-end justify-start">
         <div class="flex flex-col items-start mr-2">
           <label for="currency">Currencies</label>
-          <select id="currency" v-model="from" class="w-full generalInput hover:cursor-pointer">
+          <select id="currency" v-model="from" class="w-full generalInput bg-white hover:cursor-pointer">
             <option value="" selected>EUR</option>
             <option :value="currency" v-for="currency in currencies" :key="currency">{{ currency }}</option>
           </select>
@@ -27,7 +27,7 @@
           <label for="currency2">To</label>
           <dropdown-component>
             <template v-slot:trigger>
-              <div id="currency2" class="flex items-center w-full gap-1 generalInput hover:cursor-pointer">
+              <div id="currency2" class="flex items-center w-full gap-1 generalInput bg-white hover:cursor-pointer">
                 <span>{{ selectedToArray }}</span>
                 <font-awesome-icon icon="chevron-down" class="ml-1" />
               </div>
@@ -139,6 +139,7 @@ export default {
     this.beginDate = this.bugununTarihi;
   },
   mounted() {
+    this.$store.commit('loadingTrue');
     httpCall().post('exchange', {
       beginDate: this.beginDate,
       endDate: this.beginDate,
@@ -149,6 +150,8 @@ export default {
       this.datas = response.data;
     }).catch((error) => {
       console.log(error)
+    }).finally(() => {
+      this.$store.commit('loadingFalse');
     });
 
     this.currencies = [
@@ -223,6 +226,8 @@ export default {
       }
     },
     getExchange() {
+      this.$store.commit('loadingTrue');
+
       let endDate = this.endDate;
       if (!this.endDate) {
         endDate = this.beginDate;
@@ -254,6 +259,8 @@ export default {
         }
       }).catch((error) => {
         console.log(error)
+      }).finally(() => {
+        this.$store.commit('loadingFalse');
       });
     }
   }

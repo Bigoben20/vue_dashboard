@@ -31,6 +31,7 @@
         </router-link>
       </div> -->
     </nav>
+    <loading-component ref="loadingModal" :show="showLoading" :loadingText="loadingMessage"/>
 
     <!-- Page Contents -->
     <main class="translate-y-[52px] min-h-screen transition-all ease-in-out duration-300 p-2 md:p-6 overflow-x-hidden w-full" :class="{'max-w-full':!sidebarOpen, 'translate-x-[200px] max-w-full md:max-w-[calc(100%-200px)]':sidebarOpen}">
@@ -42,6 +43,7 @@
 <script>
 import { useRouter } from 'vue-router'
 import { ref, onMounted, watch } from 'vue';
+import { mapState } from 'vuex';
 
 export default {
   setup() {
@@ -57,7 +59,9 @@ export default {
   data() {
     return {
       sidebarOpen: true,
-      screenWidth: 0
+      screenWidth: 0,
+      showLoading: false,
+      loadingMessage: 'Loading...'
     }
   },
   mounted() {
@@ -76,6 +80,14 @@ export default {
     if (this.screenWidth < 768) {
       this.sidebarOpen = false;
     }
-  }
+  },
+  computed: {
+    ...mapState(['loading']) // Vuex store'daki state'i bu bileşene ekle
+  },
+  watch: {
+    loading(newValue, oldValue) {
+      this.showLoading = newValue;
+    }
+  },
 };
 </script>
