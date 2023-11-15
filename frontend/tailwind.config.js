@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '425px',
+        // => @media (min-width: 375px) { ... }
+      },
       colors: {
         primary: {
           50: "#00AF91",
@@ -16,6 +20,7 @@ export default {
       },
       animation: {
         'hue-rotate': 'hue-rotate 5s linear infinite',
+        'spin-slow': 'spin 1s linear infinite',
       },
       keyframes: {
         'hue-rotate': {

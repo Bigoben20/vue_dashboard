@@ -5,17 +5,17 @@
       
       <!-- Logo -->
       <div class="block p-2 transition-all duration-500 ease-in-out w-fit h-fit hue-rotate-[197deg] hover:animate-hue-rotate">
-        <img alt="Logo" class="h-[55px] w-fit" src="@/assets/logo.svg" />
+        <img alt="Logo" class="h-[35px] w-fit" src="@/assets/logo.svg" />
       </div>
 
       <!-- Menu Button -->
-      <button class="p-2 mr-4 text-2xl text-gray-700 bg-white rounded-lg hoverEffect" @click="sidebarOpen = !sidebarOpen">
+      <button class="px-2 py-1 mr-4 text-xl text-gray-700 bg-white rounded-lg hoverEffect" @click="sidebarOpen = !sidebarOpen">
         <font-awesome-icon icon="fa-bars" />
       </button>
     </header>
 
     <!-- Sidebar -->
-    <nav class="z-20 fixed top-[72px] left-0 flex flex-col items-start justify-start bg-white h-screen w-[200px] transition-transform ease-in-out duration-300" :class="{'translate-x-[-200px]':!sidebarOpen}">
+    <nav class="z-20 fixed top-[52px] left-0 flex flex-col items-start justify-start bg-white h-screen w-[200px] transition-transform ease-in-out duration-300" :class="{'translate-x-[-200px]':!sidebarOpen}">
       <div ref="routerLinks" class="flex flex-col items-stretch justify-center w-full gap-2 px-2 py-4">
         <!-- Router Links -->
         <RouterLink class="items-center gap-1 routerLink" v-for="(router, index) in routerUrls" :key="index" :to="router.path">
@@ -31,9 +31,10 @@
         </router-link>
       </div> -->
     </nav>
+    <loading-component ref="loadingModal" :show="showLoading" :loadingText="loadingMessage"/>
 
     <!-- Page Contents -->
-    <main class="translate-y-[72px] min-h-screen transition-all ease-in-out duration-300 p-2 md:p-6 overflow-x-hidden w-full" :class="{'max-w-full':!sidebarOpen, 'translate-x-[200px] max-w-full md:max-w-[calc(100%-200px)]':sidebarOpen}">
+    <main class="translate-y-[52px] min-h-screen transition-all ease-in-out duration-300 p-2 md:p-6 overflow-x-hidden w-full" :class="{'max-w-full':!sidebarOpen, 'translate-x-[200px] max-w-full md:max-w-[calc(100%-200px)]':sidebarOpen}">
       <RouterView />
     </main>
   </div>
@@ -42,6 +43,7 @@
 <script>
 import { useRouter } from 'vue-router'
 import { ref, onMounted, watch } from 'vue';
+import { mapState } from 'vuex';
 
 export default {
   setup() {
@@ -57,7 +59,9 @@ export default {
   data() {
     return {
       sidebarOpen: true,
-      screenWidth: 0
+      screenWidth: 0,
+      showLoading: false,
+      loadingMessage: 'Loading...'
     }
   },
   mounted() {
@@ -76,6 +80,14 @@ export default {
     if (this.screenWidth < 768) {
       this.sidebarOpen = false;
     }
-  }
+  },
+  computed: {
+    ...mapState(['loading']) // Vuex store'daki state'i bu bileşene ekle
+  },
+  watch: {
+    loading(newValue, oldValue) {
+      this.showLoading = newValue;
+    }
+  },
 };
 </script>

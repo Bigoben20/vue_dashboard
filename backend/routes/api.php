@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\ExchangeController;
+use App\Http\Controllers\Api\NewsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::name('api.')->group(function () {
     Route::post('/exchange', [ExchangeController::class, 'getExchange'])->name('exchange');
+    Route::post('/news', [NewsController::class, 'getNews'])->name('news');
 });

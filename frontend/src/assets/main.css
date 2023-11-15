@@ -33,7 +33,7 @@
 }
 
 .generalInput {
-    @apply px-4 py-2 text-gray-800 transition-all bg-white border-none rounded appearance-none focus:outline-2 focus:outline-offset-1 focus:outline-blue-600 focus:ring-0;
+    @apply px-4 py-2 text-gray-800 transition-all rounded appearance-none focus:outline-2 focus:outline-offset-1 focus:outline-blue-600 focus:ring-0;
 }
 
 table thead {
