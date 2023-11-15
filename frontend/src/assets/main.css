@@ -19,3 +19,34 @@
 .hoverEffect2 {
     @apply hover:brightness-150 active:brightness-200;
 }
+
+.title {
+    @apply text-4xl font-bold tracking-widest;
+}
+
+.heading {
+    @apply text-3xl font-bold tracking-wider;
+}
+
+.text {
+    @apply text-base font-medium;
+}
+
+.generalInput {
+    @apply px-4 py-2 text-gray-800 transition-all rounded appearance-none focus:outline-2 focus:outline-offset-1 focus:outline-blue-600 focus:ring-0;
+}
+
+table thead {
+    @apply bg-gray-100 border-b border-gray-300;
+}
+
+table thead tr th {
+    @apply text-gray-600;
+}
+table thead tr th, table tbody tr td {
+    @apply text-start px-3 py-1.5;
+}
+
+table tbody {
+    @apply divide-y;
+}

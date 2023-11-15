@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Dashboard from '../views/Dashboard.vue'
-import Admins from '../views/Admins.vue'
-import Orders from '../views/Orders.vue'
+import Home from '../views/Home.vue'
+import CurrencyConverter from '../views/CurrencyConverter.vue'
+import News from '../views/News.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -9,27 +9,27 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      meta: { title: 'Dashboard' },
-      component: Dashboard
+      meta: { title: 'Home' },
+      component: Home
     },
     {
-      path: '/admins',
-      name: 'admins',
-      meta: { title: 'Admins' },
-      component: Admins
+      path: '/currency-converter',
+      name: 'currency-converter',
+      meta: { title: 'Currency Converter' },
+      component: CurrencyConverter
     },
     {
-      path: '/orders',
-      name: 'orders',
-      meta: { title: 'Orders' },
-      component: Orders
+      path: '/news',
+      name: 'news',
+      meta: { title: 'News' },
+      component: News
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
   // Sayfa değiştiğinde başlığı güncelle
-  document.title = to.meta.title || 'Vue Dashboard';
+  document.title = to.meta.title || 'Api App';
   next();
 });
 
