@@ -8,17 +8,17 @@
       <div class="flex items-end gap-4">
         <div class="flex flex-col items-start">
           <label for="beginDate">Begin Date</label>
-          <input id="beginDate" v-model="beginDate" type="date" :max="bugununTarihi" class="generalInput bg-white">
+          <input id="beginDate" v-model="beginDate" type="date" :max="bugununTarihi" class="bg-white generalInput">
         </div>
         <div class="flex flex-col items-start">
           <label for="endDate">End Date</label>
-          <input id="endDate" v-model="endDate" type="date" :max="bugununTarihi" class="generalInput bg-white">
+          <input id="endDate" v-model="endDate" type="date" :max="bugununTarihi" class="bg-white generalInput">
         </div>
       </div>
       <div class="flex items-end justify-start">
         <div class="flex flex-col items-start mr-2">
           <label for="currency">Currencies</label>
-          <select id="currency" v-model="from" class="w-full generalInput bg-white hover:cursor-pointer">
+          <select id="currency" v-model="from" class="w-full bg-white generalInput hover:cursor-pointer">
             <option value="" selected>EUR</option>
             <option :value="currency" v-for="currency in currencies" :key="currency">{{ currency }}</option>
           </select>
@@ -27,14 +27,14 @@
           <label for="currency2">To</label>
           <dropdown-component>
             <template v-slot:trigger>
-              <div id="currency2" class="flex items-center w-full gap-1 generalInput bg-white hover:cursor-pointer">
+              <div id="currency2" class="flex items-center w-full gap-1 bg-white generalInput hover:cursor-pointer">
                 <span>{{ selectedToArray }}</span>
                 <font-awesome-icon icon="chevron-down" class="ml-1" />
               </div>
             </template>
 
             <div v-for="(currency, index) in currencies" :key="index" class="">
-              <label v-if="(from == '' && currency != 'EUR') || (from != '' && currency != from)" class="flex gap-1 px-4 py-1 bg-white hover:bg-gray-200 active:bg-gray-300 hover:cursor-pointer">
+              <label v-if="(from == '' && currency != 'EUR') || (from != '' && currency != from)" class="flex gap-1 px-4 py-1 hover:bg-gray-200 active:bg-gray-300 hover:cursor-pointer">
                 <input type="checkbox" v-model="toArray[index]">
                 <span>{{ currency }}</span>
               </label>
